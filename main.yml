@@ -1,0 +1,26 @@
+name: Run Shell Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run shell script
+        run: |
+          mkdir abc 
+          mkdir def
+          chmod +x 777 Automated_Backup.sh
+          ./Automated_Backup abc def
+          
+          
